@@ -24,7 +24,7 @@ Getting this method correct is, undoubtedly, the most important performance aspe
 Please **don't** add `key` prop to the output of `rowRenderer`. It is intentional to not have it. Adding it will stop recycling and cause random mounts/unmounts. It will totally ruin performance.
 
 ### 3) Estimated heights
-If you're using `forceNonDeterministicRendering` the layout manager expects heigts and widths provided by you as close estimates. By default in first pass RLV will compute layout based on estimates and position items. Post that RLV uses `ItemAnimator` to gracefully move items to actual positions based on actual layouts computed after views mount.
+If you're using `forceNonDeterministicRendering` the layout manager expects heights and widths provided by you as close estimates. By default in first pass RLV will compute layout based on estimates and position items. Post that RLV uses `ItemAnimator` to gracefully move items to actual positions based on actual layouts computed after views mount.
 
 Any mismatch in actual and estimated layouts leads to relayout cycles which are not a concern if estimates are close otherwise it becomes a performance bottleneck. Incorrect values may lead to lot of visual glitches and increased blank areas.
 
